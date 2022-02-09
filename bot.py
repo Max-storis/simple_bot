@@ -10,13 +10,15 @@ def start_bot(update: Updater, context: CallbackContext):
 	mytext = """Hello {}
 
 	Ihave only /start command! =)""" . format(update.message.chat.first_name)
+	logging.info('User {} press /start'.format(update.message.chat.user_name))
 	update.message.reply_text(mytext)
 
 def chat(update: Updater, context: CallbackContext):
 	text = update.message.text
+	logging.info(text)
 
 	update.message.reply_text(text)
-	logging.info(text)	
+		
 
 def main():
 	updtr = Updater(settings.TOKEN_TELEGRAMM)
